@@ -76,11 +76,8 @@ echo:
 echo Copy libs
 echo -----------------------------
 
-if NOT EXIST %outputDirectory%\lib
-mkdir %outputDirectory%\lib
-
-if NOT EXIST %outputDirectory%\lib\net461
-mkdir %outputDirectory%\lib\net461
+if NOT EXIST %outputDirectory%\lib        mkdir %outputDirectory%\lib
+if NOT EXIST %outputDirectory%\lib\net461 mkdir %outputDirectory%\lib\net461
 
 xcopy /Q %solutionDirectory%\GeocodeFarm\bin\Release\GeocodeFarm* %outputDirectory%\lib\net461\
 echo Done.
@@ -126,7 +123,7 @@ echo -----------------------------
 echo Hit return to continue...
 pause 
 cd %packagesDirectory%
-%nuget% push GeocodeFarm.%version%.nupkg
+%nuget% push %packagesDirectory%\GeocodeFarm.%version%.nupkg  -Source https://www.nuget.org/api/v2/package
 echo Done.
 
 

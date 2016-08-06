@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>GeocodeFarm</id>
+    <version>1.0.0</version>
+    <title>GeocodeFarm API client</title>
+    <authors>SandRock</authors>
+    <owners>SandRock</owners>
+    <licenseUrl>https://github.com/sandrock/GeocodeFarm-dotnet/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/sandrock/GeocodeFarm-dotnet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[Lightweight API client for http://geocode.farm/.]]></description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright © SandRock 2016</copyright>
+    <tags>geocode geocodefarm api</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="6.0.8" />
+    </dependencies>
+  </metadata>
+</package>
