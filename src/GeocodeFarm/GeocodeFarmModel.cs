@@ -143,10 +143,10 @@ namespace GeocodeFarm
     public class GeocodingCoordinates
     {
         [DataMember(Name = "latitude")]
-        public double Latitude { get; set; }
+        public decimal Latitude { get; set; }
 
         [DataMember(Name = "longitude")]
-        public double Longitude { get; set; }
+        public decimal Longitude { get; set; }
     }
 
     [DataContract]
