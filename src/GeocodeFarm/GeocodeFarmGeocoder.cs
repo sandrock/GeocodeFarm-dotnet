@@ -46,6 +46,22 @@ namespace GeocodeFarm
             AccessDeniedStatus,
         };
 
+        private readonly string apiKey;
+
+        /// <summary>
+        /// Free User restrictions will apply.
+        /// </summary>
+        public GeocodeFarmGeocoder()
+        {
+        }
+
+        /// <summary>Only Required for Paid Users</summary>
+        /// <param name="apiKey">Only Required for Paid Users. If not sepecified, Free User restrictions will apply.</param>
+        public GeocodeFarmGeocoder(string apiKey)
+        {
+            this.apiKey = apiKey;
+        }
+
         /// <summary>
         /// Forward geocoding takes a provided address or location and returns the coordinate set for the requested location.
         /// </summary>
@@ -69,7 +85,7 @@ namespace GeocodeFarm
             if (string.IsNullOrEmpty(location))
                 throw new ArgumentNullException("location");
 
-            var geocodeFarmRequestAddress = "https://www.geocode.farm/v3/json/forward/?addr=" + Uri.EscapeUriString(location) + "&count=" + count;
+            var geocodeFarmRequestAddress = "https://www.geocode.farm/v3/json/forward/?addr=" + Uri.EscapeUriString(location) + "&count=" + count + (this.apiKey != null ? string.Concat("&key=", this.apiKey) : null);
 
             var httpRequest = (HttpWebRequest)WebRequest.Create(geocodeFarmRequestAddress);
             try
@@ -116,7 +132,8 @@ namespace GeocodeFarm
             var geocodeFarmRequestAddress = "https://www.geocode.farm/v3/json/reverse/"
                 + "?lat=" + latitude.ToString("R", culture)
                 + "&lon=" + longitude.ToString("R", culture)
-                + "&count=" + count;
+                + "&count=" + count
+                + (this.apiKey != null ? string.Concat("&key=", this.apiKey) : null);
 
             var httpRequest = (HttpWebRequest)WebRequest.Create(geocodeFarmRequestAddress);
             try
