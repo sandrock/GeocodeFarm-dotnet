@@ -45,7 +45,7 @@ namespace GeocodeFarm
 
         public bool IsQuotaReached { get; set; }
 
-        public GeocodeFarmModel Result { get; set; }
+        public GeocodingResults Result { get; set; }
 
         public string RequestStatus { get; set; }
 

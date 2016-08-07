@@ -58,9 +58,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GeocodeFarm\GeocodeFarm.csproj">
+    <ProjectReference Include="..\GeocodeFarm\GeocodeFarm.NET461.csproj">
       <Project>{c8cfcae9-dd03-4bea-a425-db041139acb1}</Project>
-      <Name>GeocodeFarm</Name>
+      <Name>GeocodeFarm.NET461</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

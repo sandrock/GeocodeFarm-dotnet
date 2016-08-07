@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <package>
   <metadata>
     <id>GeocodeFarm</id>
@@ -9,9 +9,16 @@
     <licenseUrl>https://github.com/sandrock/GeocodeFarm-dotnet/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/sandrock/GeocodeFarm-dotnet</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[Lightweight API client for http://geocode.farm/.]]></description>
-    <releaseNotes>Initial release.</releaseNotes>
-    <copyright>Copyright � SandRock 2016</copyright>
+    <description><![CDATA[Unofficial Lightweight API client for http://geocode.farm/.
+
+You must comply with geocode.farm's terms of service.
+
+License: LGPL.]]></description>
+    <releaseNotes><![CDATA[- Added support for .NET 4.5.
+- Removed PDB files from the package.
+- Documentation.
+- Breaking change: changed the return type of all methods from GeocodeFarmModel to GeocodingResults.]]></releaseNotes>
+    <copyright>Copyright © SandRock 2016</copyright>
     <tags>geocode geocodefarm api</tags>
     <dependencies>
       <dependency id="Newtonsoft.Json" version="6.0.8" />

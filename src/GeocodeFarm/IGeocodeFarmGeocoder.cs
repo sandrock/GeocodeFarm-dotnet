@@ -24,7 +24,7 @@ namespace GeocodeFarm
         /// <param name="location">The string to search for. Usually a street address. Just be sure to include the country at the end of the address to ensure accurate results.</param>
         /// <returns></returns>
         /// <exception cref="GeocodeFarmGeocoderException"></exception>
-        GeocodeFarmModel Forward(string location);
+        GeocodingResults Forward(string location);
 
         /// <summary>
         /// Forward geocoding takes a provided address or location and returns the coordinate set for the requested location.
@@ -33,7 +33,7 @@ namespace GeocodeFarm
         /// <param name="count">Default is 1.</param>
         /// <returns></returns>
         /// <exception cref="GeocodeFarmGeocoderException"></exception>
-        GeocodeFarmModel Forward(string location, int count);
+        GeocodingResults Forward(string location, int count);
 
         /// <summary>
         /// Reverse geocoding takes a provided coordinate set and returns the address for the requested coordinates.
@@ -43,7 +43,7 @@ namespace GeocodeFarm
         /// <param name="count">Default is 1.</param>
         /// <returns></returns>
         /// <exception cref="GeocodeFarmGeocoderException"></exception>
-        GeocodeFarmModel Reverse(double latitude, double longitude);
+        GeocodingResults Reverse(double latitude, double longitude);
 
         /// <summary>
         /// Reverse geocoding takes a provided coordinate set and returns the address for the requested coordinates.
@@ -52,6 +52,6 @@ namespace GeocodeFarm
         /// <param name="longitude">The numerical longitude value for which you wish to obtain the closest, human-readable address.</param>
         /// <returns></returns>
         /// <exception cref="GeocodeFarmGeocoderException"></exception>
-        GeocodeFarmModel Reverse(double latitude, double longitude, int count);
+        GeocodingResults Reverse(double latitude, double longitude, int count);
     }
 }

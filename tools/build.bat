@@ -77,9 +77,13 @@ echo Copy libs
 echo -----------------------------
 
 if NOT EXIST %outputDirectory%\lib        mkdir %outputDirectory%\lib
+if NOT EXIST %outputDirectory%\lib\net45  mkdir %outputDirectory%\lib\net45
 if NOT EXIST %outputDirectory%\lib\net461 mkdir %outputDirectory%\lib\net461
 
-xcopy /Q %solutionDirectory%\GeocodeFarm\bin\Release\GeocodeFarm* %outputDirectory%\lib\net461\
+xcopy /Q /Y %solutionDirectory%\GeocodeFarm\bin\net45\Release\GeocodeFarm.dll %outputDirectory%\lib\net45\
+xcopy /Q /Y %solutionDirectory%\GeocodeFarm\bin\net45\Release\GeocodeFarm.xml %outputDirectory%\lib\net45\
+xcopy /Q /Y %solutionDirectory%\GeocodeFarm\bin\net461\Release\GeocodeFarm.dll %outputDirectory%\lib\net461\
+xcopy /Q /Y %solutionDirectory%\GeocodeFarm\bin\net461\Release\GeocodeFarm.xml %outputDirectory%\lib\net461\
 echo Done.
 
 
@@ -109,6 +113,8 @@ echo:
 echo Build NuGet package
 echo -----------------------------
 
+echo - Did you update the release notes?
+echo:
 echo Hit return to continue...
 pause 
 cd %outputDirectory%

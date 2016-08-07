@@ -123,16 +123,18 @@ Code must pass StyleCop.
 
 ## To Do list
 
-- [x] Forward queries
-- [x] Reverse queries
-- [x] Free Usage calls
-- [ ] Paid Usage calls
+- [x] API: Forward queries
+- [x] API: Reverse queries
+- [x] API: Free Usage calls
+- [x] API: Paid Usage calls
+- [x] API: TLS option
 - [x] nuget package
+- [x] Target framework: .NET 4.5
 - [x] Target framework: .NET 4.6.1
 - [ ] Target framework: .NET core
 - [ ] Target framework: PCL
 - [ ] Target framework: Universal apps
-- [ ] Handle deserialization errors (and throw GeocodeFarmGeocoderException)
+- [x] Handle deserialization errors (and throw GeocodeFarmGeocoderException)
 
 
 

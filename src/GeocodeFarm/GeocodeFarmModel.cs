@@ -22,9 +22,16 @@ namespace GeocodeFarm
     using System.Runtime.Serialization;
     using System.Text;
 
+    //
+    // Documentation: https://geocode.farm/geocoding/free-api-documentation/
+    // 
+
     [DataContract]
     public class GeocodeFarmModel
     {
+        /// <summary>
+        /// The root node. Never null.
+        /// </summary>
         [DataMember(Name = "geocoding_results")]
         public GeocodingResults Result { get; set; }
     }
@@ -32,15 +39,27 @@ namespace GeocodeFarm
     [DataContract]
     public class GeocodingResults
     {
+        /// <summary>
+        /// Contains copyright information. Never null.
+        /// </summary>
         [DataMember(Name = "LEGAL_COPYRIGHT")]
         public IDictionary<string, string> Copyright { get; set; }
 
+        /// <summary>
+        /// Contains query status. Never null.
+        /// </summary>
         [DataMember(Name = "STATUS")]
         public GeocodingStatus Status { get; set; }
 
+        /// <summary>
+        /// Contains quota and account information. Never null.
+        /// </summary>
         [DataMember(Name = "ACCOUNT")]
         public GeocodingAccount Account { get; set; }
 
+        /// <summary>
+        /// The results. This is null when status is "FAILED, NO_RESULT".
+        /// </summary>
         [DataMember(Name = "RESULTS")]
         public IList<GeocodingResult> Results { get; set; }
     }
@@ -48,15 +67,34 @@ namespace GeocodeFarm
     [DataContract]
     public class GeocodingStatus
     {
+        /// <summary>
+        /// Value on free usage:   "FREE_USER, ACCESS_GRANTED"
+        /// Valid API key:         "KEY_VALID, ACCESS_GRANTED"
+        /// Invalid API key:       "API_KEY_INVALID"
+        /// Account not confirmed: "ACCOUNT_NOT_ACTIVE"
+        /// Bill past due:         "BILL_PAST_DUE"
+        /// Quota reached:         "OVER_QUERY_LIMIT"
+        /// </summary>
         [DataMember(Name = "access")]
         public string Access { get; set; }
 
+        /// <summary>
+        /// OK address:    "SUCCESS"
+        /// Bad address:   "FAILED, NO_RESULTS"
+        /// Quota reached: "FAILED, ACCESS_DENIED"
+        /// </summary>
         [DataMember(Name = "status")]
         public string Status { get; set; }
 
+        /// <summary>
+        /// Null when "NO_RESULTS".
+        /// </summary>
         [DataMember(Name = "address_provided")]
         public string AddressProvided { get; set; }
 
+        /// <summary>
+        /// Null when "NO_RESULTS".
+        /// </summary>
         [DataMember(Name = "result_count")]
         public int? ResultCount { get; set; }
 
@@ -67,9 +105,15 @@ namespace GeocodeFarm
     [DataContract]
     public class GeocodingAccount
     {
+        /// <summary>
+        /// Empty when "NO_RESULTS".
+        /// </summary>
         [DataMember(Name = "ip_address")]
         public string IpAddress { get; set; }
 
+        /// <summary>
+        /// Free usage: "NONE, UNLICENSED"
+        /// </summary>
         [DataMember(Name = "distribution_license")]
         public string DistributionLicense { get; set; }
 
@@ -85,6 +129,9 @@ namespace GeocodeFarm
         [DataMember(Name = "first_used")]
         public string FirstUsed { get; set; }
 
+        /// <summary>
+        /// Computed number of remaining queries. Returns null when no quota.
+        /// </summary>
         [IgnoreDataMember]
         public int? Remaining
         {
@@ -102,6 +149,9 @@ namespace GeocodeFarm
         }
     }
 
+    /// <summary>
+    /// Represents a geocode result line.
+    /// </summary>
     [DataContract]
     public class GeocodingResult
     {
@@ -158,15 +208,24 @@ namespace GeocodeFarm
         [DataMember(Name = "street_name")]
         public string StreetName { get; set; }
 
+        /// <summary>
+        /// Indicates an incorporated city or town political entity.
+        /// </summary>
         [DataMember(Name = "locality")]
         public string Locality { get; set; }
 
         [DataMember(Name = "NEIGHBORHOOD")]
         public string Neighborhood { get; set; }
 
+        /// <summary>
+        /// Indicates a first-order civil entity below the country level.
+        /// </summary>
         [DataMember(Name = "admin_1")]
         public string Admin1 { get; set; }
 
+        /// <summary>
+        /// Indicates a second-order civil entity below the country level.
+        /// </summary>
         [DataMember(Name = "admin_2")]
         public string Admin2 { get; set; }
 
@@ -187,9 +246,15 @@ namespace GeocodeFarm
         [DataMember(Name = "elevation")]
         public string Elevation { get; set; }
 
+        /// <summary>
+        /// The full human-readable timezone name for the returned point.
+        /// </summary>
         [DataMember(Name = "timezone_long")]
         public string TimezoneName { get; set; }
 
+        /// <summary>
+        /// The short or abreviated timezone name. Mostly as used by *NIX systems.
+        /// </summary>
         [DataMember(Name = "timezone_short")]
         public string TimezoneCode { get; set; }
     }
@@ -212,9 +277,24 @@ namespace GeocodeFarm
 
     public enum GeocodeFarmAccuracy
     {
+        /// <summary>
+        /// This is the highest level of accuracy and usually indicates a spot-on match.
+        /// </summary>
         EXACT_MATCH,
+
+        /// <summary>
+        /// This is the second highest level of accuracy and usually indicates a range match, within a few hundred feet most.
+        /// </summary>
         HIGH_ACCURACY,
+
+        /// <summary>
+        /// This is the third level of accuracy and usually indicates a geographical area match, such as the metro area, town, or city.
+        /// </summary>
         MEDIUM_ACCURACY,
-        UNKNOWN_ACCURACY
+
+        /// <summary>
+        /// The accuracy of this result is unable to be determined and an exact match may or may not have been obtained.
+        /// </summary>
+        UNKNOWN_ACCURACY,
     }
 }
