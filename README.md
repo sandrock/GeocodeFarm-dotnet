@@ -22,7 +22,8 @@ Here is the nuget package: [GeocodeFarm](https://www.nuget.org/packages/GeocodeF
 ### Free user
 
 ```
-var geocoder = new GeocodeFarmGeocoder();
+bool useTls = false;
+var geocoder = new GeocodeFarmGeocoder(useTls);
 GeocodeFarmModel result;
 try
 {
@@ -37,7 +38,8 @@ catch (GeocodeFarmGeocoderException ex)
 ### Paid user
 
 ```
-var geocoder = new GeocodeFarmGeocoder("PAID USER API KEY");
+bool useTls = false;
+var geocoder = new GeocodeFarmGeocoder(useTls, "PAID USER API KEY");
 GeocodeFarmModel result;
 try
 {
@@ -53,12 +55,11 @@ catch (GeocodeFarmGeocoderException ex)
 
 * `WebException`s are wrapped into a `GeocodeFarmGeocoderException`
 * Some result errors will throw a `GeocodeFarmGeocoderException`
-* Deserialization errors are not handled by the library
+* Deserialization are also handled by the library
 
 You should not catch the general exception type. If you encounter an exception of a type different from `GeocodeFarmGeocoderException`, **please create an issue with a ToString() of the exception**. I will make sure it is wrapped into a `GeocodeFarmGeocoderException` exception
 
 ```
-var geocoder = new GeocodeFarmGeocoder();
 GeocodeFarmModel result;
 try
 {
