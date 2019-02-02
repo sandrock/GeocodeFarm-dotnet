@@ -62,28 +62,30 @@ pause
 cd ..
 cd src
 set solutionDirectory=%CD%
-%msbuild4% "GeocodeFarm.sln" /p:Configuration=Release /nologo /verbosity:q
+REM %msbuild4% "GeocodeFarm.sln" /p:Configuration=Release /nologo /verbosity:q
+echo BUILD NOW THE SOLUTION IN RELEASE MODE. Then hit return.
+pause
 
-if not %ERRORLEVEL% == 0 (
- echo ERROR: build failed. exiting.
- cd %currentDirectory%
- pause
- exit
-)
+REM if not %ERRORLEVEL% == 0 (
+REM  echo ERROR: build failed. exiting.
+REM  cd %currentDirectory%
+REM  pause
+REM  exit
+REM )
 echo Done.
 
 echo:
 echo Copy libs
 echo -----------------------------
 
-if NOT EXIST %outputDirectory%\lib        mkdir %outputDirectory%\lib
-if NOT EXIST %outputDirectory%\lib\net45  mkdir %outputDirectory%\lib\net45
-if NOT EXIST %outputDirectory%\lib\net461 mkdir %outputDirectory%\lib\net461
+if NOT EXIST %outputDirectory%\lib                mkdir %outputDirectory%\lib
+if NOT EXIST %outputDirectory%\lib\net45          mkdir %outputDirectory%\lib\net45
+if NOT EXIST %outputDirectory%\lib\net461         mkdir %outputDirectory%\lib\net461
+if NOT EXIST %outputDirectory%\lib\netstandard2.0 mkdir %outputDirectory%\lib\netstandard2.0
 
-xcopy /Q /Y %solutionDirectory%\GeocodeFarm\bin\net45\Release\GeocodeFarm.dll %outputDirectory%\lib\net45\
-xcopy /Q /Y %solutionDirectory%\GeocodeFarm\bin\net45\Release\GeocodeFarm.xml %outputDirectory%\lib\net45\
-xcopy /Q /Y %solutionDirectory%\GeocodeFarm\bin\net461\Release\GeocodeFarm.dll %outputDirectory%\lib\net461\
-xcopy /Q /Y %solutionDirectory%\GeocodeFarm\bin\net461\Release\GeocodeFarm.xml %outputDirectory%\lib\net461\
+xcopy /Q /Y %solutionDirectory%\GeocodeFarm\bin\Release\net45\GeocodeFarm.* %outputDirectory%\lib\net45\
+xcopy /Q /Y %solutionDirectory%\GeocodeFarm\bin\Release\net461\GeocodeFarm.* %outputDirectory%\lib\net461\
+xcopy /Q /Y %solutionDirectory%\GeocodeFarm.NetStd\bin\Release\netstandard2.0\GeocodeFarm.* %outputDirectory%\lib\netstandard2.0\
 echo Done.
 
 
@@ -94,15 +96,18 @@ echo -----------------------------
 set /p version=<%rootDirectory%\version.txt
 echo Previous version: %version%
 
-echo Hit return to continue...
-pause 
-%vincrement% -file=%rootDirectory%\version.txt 0.0.1 %rootDirectory%\version.txt
-if not %ERRORLEVEL% == 0 (
- echo ERROR: vincrement existed with code %ERRORLEVEL%. exiting.
- cd %currentDirectory%
- pause
- exit
-)
+echo SET THE DESIRED VERSION NUMBER IN version.txt. Then hit return.
+pause
+
+REM echo Hit return to continue...
+REM pause 
+REM %vincrement% -file=%rootDirectory%\version.txt 0.0.1 %rootDirectory%\version.txt
+REM if not %ERRORLEVEL% == 0 (
+REM  echo ERROR: vincrement existed with code %ERRORLEVEL%. exiting.
+REM  cd %currentDirectory%
+REM  pause
+REM  exit
+REM )
 
 set /p version=<%rootDirectory%\version.txt
 echo New version:      %version%

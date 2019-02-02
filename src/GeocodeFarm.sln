@@ -1,13 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeocodeFarm.NET461", "GeocodeFarm\GeocodeFarm.NET461.csproj", "{C8CFCAE9-DD03-4BEA-A425-DB041139ACB1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeocodeFarm.TestsNET461", "GeocodeFarm.TestsNET461\GeocodeFarm.TestsNET461.csproj", "{CFB2A9BA-8303-422F-8744-C18FD1CFCD29}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeocodeFarm.NET45", "GeocodeFarm\GeocodeFarm.NET45.csproj", "{86537429-1DE1-4F85-AA1D-8FF2BF7E537F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeocodeFarm.TestsNET461x", "GeocodeFarm.TestsNET461\GeocodeFarm.TestsNET461x.csproj", "{FFDA06C6-DA4A-4B4A-9E39-1842E19E76D5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeocodeFarm.TestsDNC", "GeocodeFarm.TestsDNC\GeocodeFarm.TestsDNC.csproj", "{A51FFBFB-6C33-412E-B08E-88B095CBDEDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{22CFC9DC-8C63-4705-A9B1-78495C9F0C05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B86A0E31-C5DE-4C0D-920D-1B3B3BE7A596}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeocodeFarm.NetStd", "GeocodeFarm.NetStd\GeocodeFarm.NetStd.csproj", "{D7B016EE-AA11-471D-BE30-676B82FC0C4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,8 +37,31 @@ Global
 		{86537429-1DE1-4F85-AA1D-8FF2BF7E537F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86537429-1DE1-4F85-AA1D-8FF2BF7E537F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86537429-1DE1-4F85-AA1D-8FF2BF7E537F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFDA06C6-DA4A-4B4A-9E39-1842E19E76D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFDA06C6-DA4A-4B4A-9E39-1842E19E76D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFDA06C6-DA4A-4B4A-9E39-1842E19E76D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFDA06C6-DA4A-4B4A-9E39-1842E19E76D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A51FFBFB-6C33-412E-B08E-88B095CBDEDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A51FFBFB-6C33-412E-B08E-88B095CBDEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A51FFBFB-6C33-412E-B08E-88B095CBDEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A51FFBFB-6C33-412E-B08E-88B095CBDEDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7B016EE-AA11-471D-BE30-676B82FC0C4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7B016EE-AA11-471D-BE30-676B82FC0C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7B016EE-AA11-471D-BE30-676B82FC0C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7B016EE-AA11-471D-BE30-676B82FC0C4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C8CFCAE9-DD03-4BEA-A425-DB041139ACB1} = {22CFC9DC-8C63-4705-A9B1-78495C9F0C05}
+		{CFB2A9BA-8303-422F-8744-C18FD1CFCD29} = {B86A0E31-C5DE-4C0D-920D-1B3B3BE7A596}
+		{86537429-1DE1-4F85-AA1D-8FF2BF7E537F} = {22CFC9DC-8C63-4705-A9B1-78495C9F0C05}
+		{FFDA06C6-DA4A-4B4A-9E39-1842E19E76D5} = {B86A0E31-C5DE-4C0D-920D-1B3B3BE7A596}
+		{A51FFBFB-6C33-412E-B08E-88B095CBDEDB} = {B86A0E31-C5DE-4C0D-920D-1B3B3BE7A596}
+		{D7B016EE-AA11-471D-BE30-676B82FC0C4D} = {22CFC9DC-8C63-4705-A9B1-78495C9F0C05}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {42D4498D-422A-4317-BCAE-8C5A9DD199A4}
 	EndGlobalSection
 EndGlobal

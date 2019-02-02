@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>GeocodeFarm</AssemblyName>
+    <RootNamespace>GeocodeFarm</RootNamespace>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Version>1.1.0</Version>
+    <Authors>SandRock</Authors>
+    <Company />
+    <Product />
+    <Description>Unofficial lightweight .NET client for https://www.geocode.farm/.
+
+You must comply with geocode.farm's terms of service.</Description>
+    <Copyright>GNU Lesser General Public License v3.0</Copyright>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/sandrock/GeocodeFarm-dotnet/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/sandrock/GeocodeFarm-dotnet</PackageProjectUrl>
+    <PackageTags>geocode.farm geocode geocodefarm api</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\GeocodeFarm.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\GeocodeFarm.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+    <Compile Remove="Properties\AssemblyInfo.NET45.cs" />
+    <Compile Remove="Properties\AssemblyInfo.NET461.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\GeocodeFarm\GeocodeFarmGeocoder.cs" Link="GeocodeFarmGeocoder.cs" />
+    <Compile Include="..\GeocodeFarm\GeocodeFarmGeocoderException.cs" Link="GeocodeFarmGeocoderException.cs" />
+    <Compile Include="..\GeocodeFarm\GeocodeFarmModel.cs" Link="GeocodeFarmModel.cs" />
+    <Compile Include="..\GeocodeFarm\IGeocodeFarmGeocoder.cs" Link="IGeocodeFarmGeocoder.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+  </ItemGroup>
+
+</Project>
